@@ -156,7 +156,6 @@ def check_search_state(url_post):
     return state
 
 
-# get_data('105499',1611735980,1611749580)
 
 def check_for_update(sn):
     conn = sqlite3.connect('sigicom2.db', timeout=30)
@@ -396,15 +395,11 @@ def manual_export(sn, start_datetime, end_datetime):
     if type(sn) == list:
         for s in sn:
             sntz = get_timezone(s)
-            # start_timestamp = start_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-            # end_timestamp = end_datetime.replace(tzinfo=timezone(sntz)).timestamp()
             start_timestamp = timezone(sntz).localize(start_datetime).timestamp()
             end_timestamp = timezone(sntz).localize(end_datetime).timestamp()
             export_data(s, start_timestamp, end_timestamp)
     else:
         sntz = get_timezone(sn)
-        # start_timestamp = start_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-        # end_timestamp = end_datetime.replace(tzinfo=timezone(sntz)).timestamp()
         start_timestamp = timezone(sntz).localize(start_datetime).timestamp()
         end_timestamp = timezone(sntz).localize(end_datetime).timestamp()
         export_data(sn, start_timestamp, end_timestamp)
@@ -414,15 +409,11 @@ def manual_get_data(sn, start_datetime, end_datetime):
     if type(sn) == list:
         for s in sn:
             sntz = get_timezone(s)
-            # start_timestamp = start_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-            # end_timestamp = end_datetime.replace(tzinfo=timezone(sntz)).timestamp()
             start_timestamp = timezone(sntz).localize(start_datetime).timestamp()
             end_timestamp = timezone(sntz).localize(end_datetime).timestamp()
             get_data(s, start_timestamp, end_timestamp, True)
     else:
         sntz = get_timezone(sn)
-        # start_timestamp = start_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-        # end_timestamp = end_datetime.replace(tzinfo=timezone(sntz)).timestamp()
         start_timestamp = timezone(sntz).localize(start_datetime).timestamp()
         end_timestamp = timezone(sntz).localize(end_datetime).timestamp()
         get_data(sn, start_timestamp, end_timestamp, True)
@@ -491,10 +482,6 @@ def export_data(sn, start_time, end_time):
 
 def data_to_plot(sn, start_datetime, end_datetime):
     sntz = get_timezone(sn)
-    # start_time = start_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-    # end_time = end_datetime.replace(tzinfo=timezone(sntz)).timestamp()
-    # start_time=start_datetime.astimezone(timezone(sntz)).timestamp()
-    # end_time=end_datetime.astimezone(timezone(sntz)).timestamp()
     start_time = timezone(sntz).localize(start_datetime).timestamp()
     end_time = timezone(sntz).localize(end_datetime).timestamp()
     print("sigi start time: ", start_time)
