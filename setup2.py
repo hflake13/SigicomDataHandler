@@ -12,8 +12,7 @@ import matplotlib
 import datetime
 import tkinter as tk
 
-#os.environ['TCL_LIBRARY'] = r'C:\Users\hayden.flake\AppData\Local\Continuum\anaconda3\tcl\tcl8.6'
-#os.environ['TK_LIBRARY'] = r'C:\Users\hayden.flake\AppData\Local\Continuum\anaconda3\tcl\tk8.6'
+
 buildOptions = dict(include_msvcr=True,\
                     includes=['matplotlib.backends.backend_pdf','matplotlib.figure','numpy.core','matplotlib.backends.backend_tkagg'], \
                     include_files=[(requests.certs.where(), 'cacert.pem'), (matplotlib.get_data_path(), "mpl-data"),
@@ -35,15 +34,3 @@ setup(name = "sigicom data handler v1.3",
 
 
 
-#import win32com.client as win32
-##import openpyxl
-#import os
-#import pathlib
-#from PyQt5.QtGui import *
-#from PyQt5.QtWidgets import *
-#from PyQt5.QtCore import *
-#import sys
-
-#'numpy.core._methods','numpy.lib.format',
-
-#,excludes=["numpy","html","http","xml","xlrd","email","cv2","pyautogui","setuptools","matplotlib","PIL","scipy"]
